@@ -178,6 +178,11 @@ $ docker run --volumes-from nginx \
 Finally, start your containers with `VIRTUAL_HOST` environment variables.
 
     $ docker run -e VIRTUAL_HOST=foo.bar.com  ...
+
+### Health checker container
+
+[docker-doctor](https://github.com/goodservers/docker-doctor) is container health checker that waits until the new container is fully prepared and then removes the old one. Basically it checks the docker event sent from staring container. If have set HEALTH_CHECKER environment property then waits until the container's health is ok and afterwards old container is stopped and removed.
+
 ### SSL Support using letsencrypt
 
 [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion) is a lightweight companion container for the nginx-proxy. It allow the creation/renewal of Let's Encrypt certificates automatically. 
